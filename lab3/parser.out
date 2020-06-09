@@ -1,0 +1,3076 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> expression
+Rule 2     expression -> expression EXPONENT expression
+Rule 3     term -> expression TIMES expression
+Rule 4     term -> expression DIVIDE expression
+Rule 5     expression -> expression INTDIV expression
+Rule 6     expression -> expression MOD expression
+Rule 7     expression -> expression PLUS expression
+Rule 8     expression -> expression MINUS expression
+Rule 9     expression -> expression IN expression
+Rule 10    expression -> expression CONCAT expression
+Rule 11    expression -> NOT expression
+Rule 12    expression -> expression ANDALSO expression
+Rule 13    expression -> expression ORELSE expression
+Rule 14    expression -> expression LESSERTHAN expression
+Rule 15    expression -> expression LESSEREQUAL expression
+Rule 16    expression -> expression EQUAL expression
+Rule 17    expression -> expression NOTEQUAL expression
+Rule 18    expression -> expression GREATEREQUAL expression
+Rule 19    expression -> expression GREATERTHAN expression
+Rule 20    factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS
+Rule 21    expression -> LEFTBRACKET list_inside RIGHTBRACKET
+Rule 22    list_inside -> expression COMMA list_inside
+Rule 23    list_inside -> expression
+Rule 24    list_inside -> <empty>
+Rule 25    expression -> expression LEFTBRACKET expression RIGHTBRACKET
+Rule 26    expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+Rule 27    tupleinside -> expression COMMA tupleinside
+Rule 28    tupleinside -> expression
+Rule 29    tupleinside -> <empty>
+Rule 30    expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+Rule 31    expression -> term
+Rule 32    term -> factor
+Rule 33    factor -> NUMBER
+Rule 34    factor -> BOOLEAN
+Rule 35    term -> STRING
+
+Terminals, with rules where they appear
+
+ANDALSO              : 12
+BOOLEAN              : 34
+COMMA                : 22 27
+CONCAT               : 10
+DIVIDE               : 4
+EQUAL                : 16
+EXPONENT             : 2
+GREATEREQUAL         : 18
+GREATERTHAN          : 19
+IN                   : 9
+INTDIV               : 5
+LEFTBRACKET          : 21 25
+LEFTPARENTHESIS      : 20 26 30
+LESSEREQUAL          : 15
+LESSERTHAN           : 14
+MINUS                : 8
+MOD                  : 6
+NOT                  : 11
+NOTEQUAL             : 17
+NUMBER               : 33
+ORELSE               : 13
+PLUS                 : 7
+RIGHTBRACKET         : 21 25
+RIGHTPARENTHESIS     : 20 26 30
+STRING               : 35
+TIMES                : 3
+TUPLE_INDEX          : 30
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 22 23 25 25 27 28 30 30
+factor               : 32
+list_inside          : 21 22
+statement            : 0
+term                 : 31
+tupleinside          : 26 27
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    statement                      shift and go to state 1
+    expression                     shift and go to state 2
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 1
+
+    (0) S' -> statement .
+
+
+
+state 2
+
+    (1) statement -> expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    $end            reduce using rule 1 (statement -> expression .)
+    EXPONENT        shift and go to state 12
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    IN              shift and go to state 17
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    LEFTBRACKET     shift and go to state 27
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+
+state 3
+
+    (11) expression -> NOT . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 30
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 4
+
+    (21) expression -> LEFTBRACKET . list_inside RIGHTBRACKET
+    (22) list_inside -> . expression COMMA list_inside
+    (23) list_inside -> . expression
+    (24) list_inside -> .
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    RIGHTBRACKET    reduce using rule 24 (list_inside -> .)
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    list_inside                    shift and go to state 31
+    expression                     shift and go to state 32
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 5
+
+    (26) expression -> LEFTPARENTHESIS . tupleinside RIGHTPARENTHESIS
+    (20) factor -> LEFTPARENTHESIS . expression RIGHTPARENTHESIS
+    (27) tupleinside -> . expression COMMA tupleinside
+    (28) tupleinside -> . expression
+    (29) tupleinside -> .
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    RIGHTPARENTHESIS reduce using rule 29 (tupleinside -> .)
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    tupleinside                    shift and go to state 33
+    expression                     shift and go to state 34
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 6
+
+    (30) expression -> TUPLE_INDEX . expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 35
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 7
+
+    (31) expression -> term .
+
+    EXPONENT        reduce using rule 31 (expression -> term .)
+    INTDIV          reduce using rule 31 (expression -> term .)
+    MOD             reduce using rule 31 (expression -> term .)
+    PLUS            reduce using rule 31 (expression -> term .)
+    MINUS           reduce using rule 31 (expression -> term .)
+    IN              reduce using rule 31 (expression -> term .)
+    CONCAT          reduce using rule 31 (expression -> term .)
+    ANDALSO         reduce using rule 31 (expression -> term .)
+    ORELSE          reduce using rule 31 (expression -> term .)
+    LESSERTHAN      reduce using rule 31 (expression -> term .)
+    LESSEREQUAL     reduce using rule 31 (expression -> term .)
+    EQUAL           reduce using rule 31 (expression -> term .)
+    NOTEQUAL        reduce using rule 31 (expression -> term .)
+    GREATEREQUAL    reduce using rule 31 (expression -> term .)
+    GREATERTHAN     reduce using rule 31 (expression -> term .)
+    LEFTBRACKET     reduce using rule 31 (expression -> term .)
+    TIMES           reduce using rule 31 (expression -> term .)
+    DIVIDE          reduce using rule 31 (expression -> term .)
+    $end            reduce using rule 31 (expression -> term .)
+    COMMA           reduce using rule 31 (expression -> term .)
+    RIGHTBRACKET    reduce using rule 31 (expression -> term .)
+    RIGHTPARENTHESIS reduce using rule 31 (expression -> term .)
+    LEFTPARENTHESIS reduce using rule 31 (expression -> term .)
+
+
+state 8
+
+    (32) term -> factor .
+
+    EXPONENT        reduce using rule 32 (term -> factor .)
+    INTDIV          reduce using rule 32 (term -> factor .)
+    MOD             reduce using rule 32 (term -> factor .)
+    PLUS            reduce using rule 32 (term -> factor .)
+    MINUS           reduce using rule 32 (term -> factor .)
+    IN              reduce using rule 32 (term -> factor .)
+    CONCAT          reduce using rule 32 (term -> factor .)
+    ANDALSO         reduce using rule 32 (term -> factor .)
+    ORELSE          reduce using rule 32 (term -> factor .)
+    LESSERTHAN      reduce using rule 32 (term -> factor .)
+    LESSEREQUAL     reduce using rule 32 (term -> factor .)
+    EQUAL           reduce using rule 32 (term -> factor .)
+    NOTEQUAL        reduce using rule 32 (term -> factor .)
+    GREATEREQUAL    reduce using rule 32 (term -> factor .)
+    GREATERTHAN     reduce using rule 32 (term -> factor .)
+    LEFTBRACKET     reduce using rule 32 (term -> factor .)
+    TIMES           reduce using rule 32 (term -> factor .)
+    DIVIDE          reduce using rule 32 (term -> factor .)
+    $end            reduce using rule 32 (term -> factor .)
+    COMMA           reduce using rule 32 (term -> factor .)
+    RIGHTBRACKET    reduce using rule 32 (term -> factor .)
+    RIGHTPARENTHESIS reduce using rule 32 (term -> factor .)
+    LEFTPARENTHESIS reduce using rule 32 (term -> factor .)
+
+
+state 9
+
+    (35) term -> STRING .
+
+    EXPONENT        reduce using rule 35 (term -> STRING .)
+    INTDIV          reduce using rule 35 (term -> STRING .)
+    MOD             reduce using rule 35 (term -> STRING .)
+    PLUS            reduce using rule 35 (term -> STRING .)
+    MINUS           reduce using rule 35 (term -> STRING .)
+    IN              reduce using rule 35 (term -> STRING .)
+    CONCAT          reduce using rule 35 (term -> STRING .)
+    ANDALSO         reduce using rule 35 (term -> STRING .)
+    ORELSE          reduce using rule 35 (term -> STRING .)
+    LESSERTHAN      reduce using rule 35 (term -> STRING .)
+    LESSEREQUAL     reduce using rule 35 (term -> STRING .)
+    EQUAL           reduce using rule 35 (term -> STRING .)
+    NOTEQUAL        reduce using rule 35 (term -> STRING .)
+    GREATEREQUAL    reduce using rule 35 (term -> STRING .)
+    GREATERTHAN     reduce using rule 35 (term -> STRING .)
+    LEFTBRACKET     reduce using rule 35 (term -> STRING .)
+    TIMES           reduce using rule 35 (term -> STRING .)
+    DIVIDE          reduce using rule 35 (term -> STRING .)
+    $end            reduce using rule 35 (term -> STRING .)
+    COMMA           reduce using rule 35 (term -> STRING .)
+    RIGHTBRACKET    reduce using rule 35 (term -> STRING .)
+    RIGHTPARENTHESIS reduce using rule 35 (term -> STRING .)
+    LEFTPARENTHESIS reduce using rule 35 (term -> STRING .)
+
+
+state 10
+
+    (33) factor -> NUMBER .
+
+    EXPONENT        reduce using rule 33 (factor -> NUMBER .)
+    INTDIV          reduce using rule 33 (factor -> NUMBER .)
+    MOD             reduce using rule 33 (factor -> NUMBER .)
+    PLUS            reduce using rule 33 (factor -> NUMBER .)
+    MINUS           reduce using rule 33 (factor -> NUMBER .)
+    IN              reduce using rule 33 (factor -> NUMBER .)
+    CONCAT          reduce using rule 33 (factor -> NUMBER .)
+    ANDALSO         reduce using rule 33 (factor -> NUMBER .)
+    ORELSE          reduce using rule 33 (factor -> NUMBER .)
+    LESSERTHAN      reduce using rule 33 (factor -> NUMBER .)
+    LESSEREQUAL     reduce using rule 33 (factor -> NUMBER .)
+    EQUAL           reduce using rule 33 (factor -> NUMBER .)
+    NOTEQUAL        reduce using rule 33 (factor -> NUMBER .)
+    GREATEREQUAL    reduce using rule 33 (factor -> NUMBER .)
+    GREATERTHAN     reduce using rule 33 (factor -> NUMBER .)
+    LEFTBRACKET     reduce using rule 33 (factor -> NUMBER .)
+    TIMES           reduce using rule 33 (factor -> NUMBER .)
+    DIVIDE          reduce using rule 33 (factor -> NUMBER .)
+    $end            reduce using rule 33 (factor -> NUMBER .)
+    COMMA           reduce using rule 33 (factor -> NUMBER .)
+    RIGHTBRACKET    reduce using rule 33 (factor -> NUMBER .)
+    RIGHTPARENTHESIS reduce using rule 33 (factor -> NUMBER .)
+    LEFTPARENTHESIS reduce using rule 33 (factor -> NUMBER .)
+
+
+state 11
+
+    (34) factor -> BOOLEAN .
+
+    EXPONENT        reduce using rule 34 (factor -> BOOLEAN .)
+    INTDIV          reduce using rule 34 (factor -> BOOLEAN .)
+    MOD             reduce using rule 34 (factor -> BOOLEAN .)
+    PLUS            reduce using rule 34 (factor -> BOOLEAN .)
+    MINUS           reduce using rule 34 (factor -> BOOLEAN .)
+    IN              reduce using rule 34 (factor -> BOOLEAN .)
+    CONCAT          reduce using rule 34 (factor -> BOOLEAN .)
+    ANDALSO         reduce using rule 34 (factor -> BOOLEAN .)
+    ORELSE          reduce using rule 34 (factor -> BOOLEAN .)
+    LESSERTHAN      reduce using rule 34 (factor -> BOOLEAN .)
+    LESSEREQUAL     reduce using rule 34 (factor -> BOOLEAN .)
+    EQUAL           reduce using rule 34 (factor -> BOOLEAN .)
+    NOTEQUAL        reduce using rule 34 (factor -> BOOLEAN .)
+    GREATEREQUAL    reduce using rule 34 (factor -> BOOLEAN .)
+    GREATERTHAN     reduce using rule 34 (factor -> BOOLEAN .)
+    LEFTBRACKET     reduce using rule 34 (factor -> BOOLEAN .)
+    TIMES           reduce using rule 34 (factor -> BOOLEAN .)
+    DIVIDE          reduce using rule 34 (factor -> BOOLEAN .)
+    $end            reduce using rule 34 (factor -> BOOLEAN .)
+    COMMA           reduce using rule 34 (factor -> BOOLEAN .)
+    RIGHTBRACKET    reduce using rule 34 (factor -> BOOLEAN .)
+    RIGHTPARENTHESIS reduce using rule 34 (factor -> BOOLEAN .)
+    LEFTPARENTHESIS reduce using rule 34 (factor -> BOOLEAN .)
+
+
+state 12
+
+    (2) expression -> expression EXPONENT . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 36
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 13
+
+    (5) expression -> expression INTDIV . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 37
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 14
+
+    (6) expression -> expression MOD . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 38
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 15
+
+    (7) expression -> expression PLUS . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 39
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 16
+
+    (8) expression -> expression MINUS . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 40
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 17
+
+    (9) expression -> expression IN . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 41
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 18
+
+    (10) expression -> expression CONCAT . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 42
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 19
+
+    (12) expression -> expression ANDALSO . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 43
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 20
+
+    (13) expression -> expression ORELSE . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 44
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 21
+
+    (14) expression -> expression LESSERTHAN . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 45
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 22
+
+    (15) expression -> expression LESSEREQUAL . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 46
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 23
+
+    (16) expression -> expression EQUAL . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 47
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 24
+
+    (17) expression -> expression NOTEQUAL . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 48
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 25
+
+    (18) expression -> expression GREATEREQUAL . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 49
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 26
+
+    (19) expression -> expression GREATERTHAN . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 50
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 27
+
+    (25) expression -> expression LEFTBRACKET . expression RIGHTBRACKET
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 51
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 28
+
+    (3) term -> expression TIMES . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 52
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 29
+
+    (4) term -> expression DIVIDE . expression
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 53
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 30
+
+    (11) expression -> NOT expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 11 (expression -> NOT expression .)
+    INTDIV          reduce using rule 11 (expression -> NOT expression .)
+    MOD             reduce using rule 11 (expression -> NOT expression .)
+    PLUS            reduce using rule 11 (expression -> NOT expression .)
+    MINUS           reduce using rule 11 (expression -> NOT expression .)
+    IN              reduce using rule 11 (expression -> NOT expression .)
+    ANDALSO         reduce using rule 11 (expression -> NOT expression .)
+    ORELSE          reduce using rule 11 (expression -> NOT expression .)
+    LEFTBRACKET     reduce using rule 11 (expression -> NOT expression .)
+    TIMES           reduce using rule 11 (expression -> NOT expression .)
+    DIVIDE          reduce using rule 11 (expression -> NOT expression .)
+    $end            reduce using rule 11 (expression -> NOT expression .)
+    COMMA           reduce using rule 11 (expression -> NOT expression .)
+    RIGHTBRACKET    reduce using rule 11 (expression -> NOT expression .)
+    RIGHTPARENTHESIS reduce using rule 11 (expression -> NOT expression .)
+    LEFTPARENTHESIS reduce using rule 11 (expression -> NOT expression .)
+    CONCAT          shift and go to state 18
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! CONCAT          [ reduce using rule 11 (expression -> NOT expression .) ]
+  ! LESSERTHAN      [ reduce using rule 11 (expression -> NOT expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 11 (expression -> NOT expression .) ]
+  ! EQUAL           [ reduce using rule 11 (expression -> NOT expression .) ]
+  ! NOTEQUAL        [ reduce using rule 11 (expression -> NOT expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 11 (expression -> NOT expression .) ]
+  ! GREATERTHAN     [ reduce using rule 11 (expression -> NOT expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ANDALSO         [ shift and go to state 19 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 31
+
+    (21) expression -> LEFTBRACKET list_inside . RIGHTBRACKET
+
+    RIGHTBRACKET    shift and go to state 54
+
+
+state 32
+
+    (22) list_inside -> expression . COMMA list_inside
+    (23) list_inside -> expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    COMMA           shift and go to state 55
+    RIGHTBRACKET    reduce using rule 23 (list_inside -> expression .)
+    EXPONENT        shift and go to state 12
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    IN              shift and go to state 17
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    LEFTBRACKET     shift and go to state 27
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+
+state 33
+
+    (26) expression -> LEFTPARENTHESIS tupleinside . RIGHTPARENTHESIS
+
+    RIGHTPARENTHESIS shift and go to state 56
+
+
+state 34
+
+    (20) factor -> LEFTPARENTHESIS expression . RIGHTPARENTHESIS
+    (27) tupleinside -> expression . COMMA tupleinside
+    (28) tupleinside -> expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+  ! shift/reduce conflict for RIGHTPARENTHESIS resolved as shift
+    RIGHTPARENTHESIS shift and go to state 57
+    COMMA           shift and go to state 58
+    EXPONENT        shift and go to state 12
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    IN              shift and go to state 17
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    LEFTBRACKET     shift and go to state 27
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+  ! RIGHTPARENTHESIS [ reduce using rule 28 (tupleinside -> expression .) ]
+
+
+state 35
+
+    (30) expression -> TUPLE_INDEX expression . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    LEFTPARENTHESIS shift and go to state 59
+    EXPONENT        shift and go to state 12
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    IN              shift and go to state 17
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    LEFTBRACKET     shift and go to state 27
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+
+state 36
+
+    (2) expression -> expression EXPONENT expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    $end            reduce using rule 2 (expression -> expression EXPONENT expression .)
+    COMMA           reduce using rule 2 (expression -> expression EXPONENT expression .)
+    RIGHTBRACKET    reduce using rule 2 (expression -> expression EXPONENT expression .)
+    RIGHTPARENTHESIS reduce using rule 2 (expression -> expression EXPONENT expression .)
+    LEFTPARENTHESIS reduce using rule 2 (expression -> expression EXPONENT expression .)
+    EXPONENT        shift and go to state 12
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    IN              shift and go to state 17
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    LEFTBRACKET     shift and go to state 27
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+  ! EXPONENT        [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! INTDIV          [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! MOD             [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! PLUS            [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! MINUS           [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! IN              [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! CONCAT          [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! ANDALSO         [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! ORELSE          [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! LESSERTHAN      [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! EQUAL           [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! NOTEQUAL        [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! GREATERTHAN     [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! LEFTBRACKET     [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! TIMES           [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+  ! DIVIDE          [ reduce using rule 2 (expression -> expression EXPONENT expression .) ]
+
+
+state 37
+
+    (5) expression -> expression INTDIV expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 5 (expression -> expression INTDIV expression .)
+    INTDIV          reduce using rule 5 (expression -> expression INTDIV expression .)
+    PLUS            reduce using rule 5 (expression -> expression INTDIV expression .)
+    MINUS           reduce using rule 5 (expression -> expression INTDIV expression .)
+    IN              reduce using rule 5 (expression -> expression INTDIV expression .)
+    LEFTBRACKET     reduce using rule 5 (expression -> expression INTDIV expression .)
+    TIMES           reduce using rule 5 (expression -> expression INTDIV expression .)
+    DIVIDE          reduce using rule 5 (expression -> expression INTDIV expression .)
+    $end            reduce using rule 5 (expression -> expression INTDIV expression .)
+    COMMA           reduce using rule 5 (expression -> expression INTDIV expression .)
+    RIGHTBRACKET    reduce using rule 5 (expression -> expression INTDIV expression .)
+    RIGHTPARENTHESIS reduce using rule 5 (expression -> expression INTDIV expression .)
+    LEFTPARENTHESIS reduce using rule 5 (expression -> expression INTDIV expression .)
+    MOD             shift and go to state 14
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! MOD             [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! CONCAT          [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! ANDALSO         [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! ORELSE          [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! LESSERTHAN      [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! EQUAL           [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! NOTEQUAL        [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! GREATERTHAN     [ reduce using rule 5 (expression -> expression INTDIV expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 38
+
+    (6) expression -> expression MOD expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 6 (expression -> expression MOD expression .)
+    INTDIV          reduce using rule 6 (expression -> expression MOD expression .)
+    MOD             reduce using rule 6 (expression -> expression MOD expression .)
+    PLUS            reduce using rule 6 (expression -> expression MOD expression .)
+    MINUS           reduce using rule 6 (expression -> expression MOD expression .)
+    IN              reduce using rule 6 (expression -> expression MOD expression .)
+    LEFTBRACKET     reduce using rule 6 (expression -> expression MOD expression .)
+    TIMES           reduce using rule 6 (expression -> expression MOD expression .)
+    DIVIDE          reduce using rule 6 (expression -> expression MOD expression .)
+    $end            reduce using rule 6 (expression -> expression MOD expression .)
+    COMMA           reduce using rule 6 (expression -> expression MOD expression .)
+    RIGHTBRACKET    reduce using rule 6 (expression -> expression MOD expression .)
+    RIGHTPARENTHESIS reduce using rule 6 (expression -> expression MOD expression .)
+    LEFTPARENTHESIS reduce using rule 6 (expression -> expression MOD expression .)
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! CONCAT          [ reduce using rule 6 (expression -> expression MOD expression .) ]
+  ! ANDALSO         [ reduce using rule 6 (expression -> expression MOD expression .) ]
+  ! ORELSE          [ reduce using rule 6 (expression -> expression MOD expression .) ]
+  ! LESSERTHAN      [ reduce using rule 6 (expression -> expression MOD expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 6 (expression -> expression MOD expression .) ]
+  ! EQUAL           [ reduce using rule 6 (expression -> expression MOD expression .) ]
+  ! NOTEQUAL        [ reduce using rule 6 (expression -> expression MOD expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 6 (expression -> expression MOD expression .) ]
+  ! GREATERTHAN     [ reduce using rule 6 (expression -> expression MOD expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 39
+
+    (7) expression -> expression PLUS expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 7 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 7 (expression -> expression PLUS expression .)
+    IN              reduce using rule 7 (expression -> expression PLUS expression .)
+    LEFTBRACKET     reduce using rule 7 (expression -> expression PLUS expression .)
+    $end            reduce using rule 7 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 7 (expression -> expression PLUS expression .)
+    RIGHTBRACKET    reduce using rule 7 (expression -> expression PLUS expression .)
+    RIGHTPARENTHESIS reduce using rule 7 (expression -> expression PLUS expression .)
+    LEFTPARENTHESIS reduce using rule 7 (expression -> expression PLUS expression .)
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    MINUS           shift and go to state 16
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+  ! INTDIV          [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! MOD             [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! MINUS           [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! CONCAT          [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! ANDALSO         [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! ORELSE          [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! LESSERTHAN      [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! EQUAL           [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! NOTEQUAL        [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! GREATERTHAN     [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! TIMES           [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 7 (expression -> expression PLUS expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! IN              [ shift and go to state 17 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+
+
+state 40
+
+    (8) expression -> expression MINUS expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 8 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 8 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 8 (expression -> expression MINUS expression .)
+    IN              reduce using rule 8 (expression -> expression MINUS expression .)
+    LEFTBRACKET     reduce using rule 8 (expression -> expression MINUS expression .)
+    $end            reduce using rule 8 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 8 (expression -> expression MINUS expression .)
+    RIGHTBRACKET    reduce using rule 8 (expression -> expression MINUS expression .)
+    RIGHTPARENTHESIS reduce using rule 8 (expression -> expression MINUS expression .)
+    LEFTPARENTHESIS reduce using rule 8 (expression -> expression MINUS expression .)
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+  ! INTDIV          [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! MOD             [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! CONCAT          [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! ANDALSO         [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! ORELSE          [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! LESSERTHAN      [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! EQUAL           [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! NOTEQUAL        [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! GREATERTHAN     [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! TIMES           [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 8 (expression -> expression MINUS expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+
+
+state 41
+
+    (9) expression -> expression IN expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 9 (expression -> expression IN expression .)
+    IN              reduce using rule 9 (expression -> expression IN expression .)
+    LEFTBRACKET     reduce using rule 9 (expression -> expression IN expression .)
+    $end            reduce using rule 9 (expression -> expression IN expression .)
+    COMMA           reduce using rule 9 (expression -> expression IN expression .)
+    RIGHTBRACKET    reduce using rule 9 (expression -> expression IN expression .)
+    RIGHTPARENTHESIS reduce using rule 9 (expression -> expression IN expression .)
+    LEFTPARENTHESIS reduce using rule 9 (expression -> expression IN expression .)
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+  ! INTDIV          [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! MOD             [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! PLUS            [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! MINUS           [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! CONCAT          [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! ANDALSO         [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! ORELSE          [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! LESSERTHAN      [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! EQUAL           [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! NOTEQUAL        [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! GREATERTHAN     [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! TIMES           [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! DIVIDE          [ reduce using rule 9 (expression -> expression IN expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! IN              [ shift and go to state 17 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+
+
+state 42
+
+    (10) expression -> expression CONCAT expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 10 (expression -> expression CONCAT expression .)
+    INTDIV          reduce using rule 10 (expression -> expression CONCAT expression .)
+    MOD             reduce using rule 10 (expression -> expression CONCAT expression .)
+    PLUS            reduce using rule 10 (expression -> expression CONCAT expression .)
+    MINUS           reduce using rule 10 (expression -> expression CONCAT expression .)
+    IN              reduce using rule 10 (expression -> expression CONCAT expression .)
+    ANDALSO         reduce using rule 10 (expression -> expression CONCAT expression .)
+    ORELSE          reduce using rule 10 (expression -> expression CONCAT expression .)
+    LESSERTHAN      reduce using rule 10 (expression -> expression CONCAT expression .)
+    LESSEREQUAL     reduce using rule 10 (expression -> expression CONCAT expression .)
+    EQUAL           reduce using rule 10 (expression -> expression CONCAT expression .)
+    NOTEQUAL        reduce using rule 10 (expression -> expression CONCAT expression .)
+    GREATEREQUAL    reduce using rule 10 (expression -> expression CONCAT expression .)
+    GREATERTHAN     reduce using rule 10 (expression -> expression CONCAT expression .)
+    LEFTBRACKET     reduce using rule 10 (expression -> expression CONCAT expression .)
+    TIMES           reduce using rule 10 (expression -> expression CONCAT expression .)
+    DIVIDE          reduce using rule 10 (expression -> expression CONCAT expression .)
+    $end            reduce using rule 10 (expression -> expression CONCAT expression .)
+    COMMA           reduce using rule 10 (expression -> expression CONCAT expression .)
+    RIGHTBRACKET    reduce using rule 10 (expression -> expression CONCAT expression .)
+    RIGHTPARENTHESIS reduce using rule 10 (expression -> expression CONCAT expression .)
+    LEFTPARENTHESIS reduce using rule 10 (expression -> expression CONCAT expression .)
+    CONCAT          shift and go to state 18
+
+  ! CONCAT          [ reduce using rule 10 (expression -> expression CONCAT expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ANDALSO         [ shift and go to state 19 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LESSERTHAN      [ shift and go to state 21 ]
+  ! LESSEREQUAL     [ shift and go to state 22 ]
+  ! EQUAL           [ shift and go to state 23 ]
+  ! NOTEQUAL        [ shift and go to state 24 ]
+  ! GREATEREQUAL    [ shift and go to state 25 ]
+  ! GREATERTHAN     [ shift and go to state 26 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 43
+
+    (12) expression -> expression ANDALSO expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 12 (expression -> expression ANDALSO expression .)
+    INTDIV          reduce using rule 12 (expression -> expression ANDALSO expression .)
+    MOD             reduce using rule 12 (expression -> expression ANDALSO expression .)
+    PLUS            reduce using rule 12 (expression -> expression ANDALSO expression .)
+    MINUS           reduce using rule 12 (expression -> expression ANDALSO expression .)
+    IN              reduce using rule 12 (expression -> expression ANDALSO expression .)
+    ANDALSO         reduce using rule 12 (expression -> expression ANDALSO expression .)
+    ORELSE          reduce using rule 12 (expression -> expression ANDALSO expression .)
+    LEFTBRACKET     reduce using rule 12 (expression -> expression ANDALSO expression .)
+    TIMES           reduce using rule 12 (expression -> expression ANDALSO expression .)
+    DIVIDE          reduce using rule 12 (expression -> expression ANDALSO expression .)
+    $end            reduce using rule 12 (expression -> expression ANDALSO expression .)
+    COMMA           reduce using rule 12 (expression -> expression ANDALSO expression .)
+    RIGHTBRACKET    reduce using rule 12 (expression -> expression ANDALSO expression .)
+    RIGHTPARENTHESIS reduce using rule 12 (expression -> expression ANDALSO expression .)
+    LEFTPARENTHESIS reduce using rule 12 (expression -> expression ANDALSO expression .)
+    CONCAT          shift and go to state 18
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! CONCAT          [ reduce using rule 12 (expression -> expression ANDALSO expression .) ]
+  ! LESSERTHAN      [ reduce using rule 12 (expression -> expression ANDALSO expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 12 (expression -> expression ANDALSO expression .) ]
+  ! EQUAL           [ reduce using rule 12 (expression -> expression ANDALSO expression .) ]
+  ! NOTEQUAL        [ reduce using rule 12 (expression -> expression ANDALSO expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 12 (expression -> expression ANDALSO expression .) ]
+  ! GREATERTHAN     [ reduce using rule 12 (expression -> expression ANDALSO expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ANDALSO         [ shift and go to state 19 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 44
+
+    (13) expression -> expression ORELSE expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 13 (expression -> expression ORELSE expression .)
+    INTDIV          reduce using rule 13 (expression -> expression ORELSE expression .)
+    MOD             reduce using rule 13 (expression -> expression ORELSE expression .)
+    PLUS            reduce using rule 13 (expression -> expression ORELSE expression .)
+    MINUS           reduce using rule 13 (expression -> expression ORELSE expression .)
+    IN              reduce using rule 13 (expression -> expression ORELSE expression .)
+    ORELSE          reduce using rule 13 (expression -> expression ORELSE expression .)
+    LEFTBRACKET     reduce using rule 13 (expression -> expression ORELSE expression .)
+    TIMES           reduce using rule 13 (expression -> expression ORELSE expression .)
+    DIVIDE          reduce using rule 13 (expression -> expression ORELSE expression .)
+    $end            reduce using rule 13 (expression -> expression ORELSE expression .)
+    COMMA           reduce using rule 13 (expression -> expression ORELSE expression .)
+    RIGHTBRACKET    reduce using rule 13 (expression -> expression ORELSE expression .)
+    RIGHTPARENTHESIS reduce using rule 13 (expression -> expression ORELSE expression .)
+    LEFTPARENTHESIS reduce using rule 13 (expression -> expression ORELSE expression .)
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! CONCAT          [ reduce using rule 13 (expression -> expression ORELSE expression .) ]
+  ! ANDALSO         [ reduce using rule 13 (expression -> expression ORELSE expression .) ]
+  ! LESSERTHAN      [ reduce using rule 13 (expression -> expression ORELSE expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 13 (expression -> expression ORELSE expression .) ]
+  ! EQUAL           [ reduce using rule 13 (expression -> expression ORELSE expression .) ]
+  ! NOTEQUAL        [ reduce using rule 13 (expression -> expression ORELSE expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 13 (expression -> expression ORELSE expression .) ]
+  ! GREATERTHAN     [ reduce using rule 13 (expression -> expression ORELSE expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 45
+
+    (14) expression -> expression LESSERTHAN expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    INTDIV          reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    MOD             reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    PLUS            reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    MINUS           reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    IN              reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    ANDALSO         reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    ORELSE          reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    LESSERTHAN      reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    LEFTBRACKET     reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    TIMES           reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    DIVIDE          reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    $end            reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    COMMA           reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    RIGHTBRACKET    reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    RIGHTPARENTHESIS reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    LEFTPARENTHESIS reduce using rule 14 (expression -> expression LESSERTHAN expression .)
+    CONCAT          shift and go to state 18
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! CONCAT          [ reduce using rule 14 (expression -> expression LESSERTHAN expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 14 (expression -> expression LESSERTHAN expression .) ]
+  ! EQUAL           [ reduce using rule 14 (expression -> expression LESSERTHAN expression .) ]
+  ! NOTEQUAL        [ reduce using rule 14 (expression -> expression LESSERTHAN expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 14 (expression -> expression LESSERTHAN expression .) ]
+  ! GREATERTHAN     [ reduce using rule 14 (expression -> expression LESSERTHAN expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ANDALSO         [ shift and go to state 19 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LESSERTHAN      [ shift and go to state 21 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 46
+
+    (15) expression -> expression LESSEREQUAL expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    INTDIV          reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    MOD             reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    PLUS            reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    MINUS           reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    IN              reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    ANDALSO         reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    ORELSE          reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    LESSERTHAN      reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    LESSEREQUAL     reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    LEFTBRACKET     reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    TIMES           reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    DIVIDE          reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    $end            reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    COMMA           reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    RIGHTBRACKET    reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    RIGHTPARENTHESIS reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    LEFTPARENTHESIS reduce using rule 15 (expression -> expression LESSEREQUAL expression .)
+    CONCAT          shift and go to state 18
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! CONCAT          [ reduce using rule 15 (expression -> expression LESSEREQUAL expression .) ]
+  ! EQUAL           [ reduce using rule 15 (expression -> expression LESSEREQUAL expression .) ]
+  ! NOTEQUAL        [ reduce using rule 15 (expression -> expression LESSEREQUAL expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 15 (expression -> expression LESSEREQUAL expression .) ]
+  ! GREATERTHAN     [ reduce using rule 15 (expression -> expression LESSEREQUAL expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ANDALSO         [ shift and go to state 19 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LESSERTHAN      [ shift and go to state 21 ]
+  ! LESSEREQUAL     [ shift and go to state 22 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 47
+
+    (16) expression -> expression EQUAL expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 16 (expression -> expression EQUAL expression .)
+    INTDIV          reduce using rule 16 (expression -> expression EQUAL expression .)
+    MOD             reduce using rule 16 (expression -> expression EQUAL expression .)
+    PLUS            reduce using rule 16 (expression -> expression EQUAL expression .)
+    MINUS           reduce using rule 16 (expression -> expression EQUAL expression .)
+    IN              reduce using rule 16 (expression -> expression EQUAL expression .)
+    ANDALSO         reduce using rule 16 (expression -> expression EQUAL expression .)
+    ORELSE          reduce using rule 16 (expression -> expression EQUAL expression .)
+    LESSERTHAN      reduce using rule 16 (expression -> expression EQUAL expression .)
+    LESSEREQUAL     reduce using rule 16 (expression -> expression EQUAL expression .)
+    EQUAL           reduce using rule 16 (expression -> expression EQUAL expression .)
+    LEFTBRACKET     reduce using rule 16 (expression -> expression EQUAL expression .)
+    TIMES           reduce using rule 16 (expression -> expression EQUAL expression .)
+    DIVIDE          reduce using rule 16 (expression -> expression EQUAL expression .)
+    $end            reduce using rule 16 (expression -> expression EQUAL expression .)
+    COMMA           reduce using rule 16 (expression -> expression EQUAL expression .)
+    RIGHTBRACKET    reduce using rule 16 (expression -> expression EQUAL expression .)
+    RIGHTPARENTHESIS reduce using rule 16 (expression -> expression EQUAL expression .)
+    LEFTPARENTHESIS reduce using rule 16 (expression -> expression EQUAL expression .)
+    CONCAT          shift and go to state 18
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! CONCAT          [ reduce using rule 16 (expression -> expression EQUAL expression .) ]
+  ! NOTEQUAL        [ reduce using rule 16 (expression -> expression EQUAL expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 16 (expression -> expression EQUAL expression .) ]
+  ! GREATERTHAN     [ reduce using rule 16 (expression -> expression EQUAL expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ANDALSO         [ shift and go to state 19 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LESSERTHAN      [ shift and go to state 21 ]
+  ! LESSEREQUAL     [ shift and go to state 22 ]
+  ! EQUAL           [ shift and go to state 23 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 48
+
+    (17) expression -> expression NOTEQUAL expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    INTDIV          reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    MOD             reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    PLUS            reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    MINUS           reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    IN              reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    ANDALSO         reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    ORELSE          reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    LESSERTHAN      reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    LESSEREQUAL     reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    EQUAL           reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    NOTEQUAL        reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    LEFTBRACKET     reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    TIMES           reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    DIVIDE          reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    $end            reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    COMMA           reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    RIGHTBRACKET    reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    RIGHTPARENTHESIS reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    LEFTPARENTHESIS reduce using rule 17 (expression -> expression NOTEQUAL expression .)
+    CONCAT          shift and go to state 18
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! CONCAT          [ reduce using rule 17 (expression -> expression NOTEQUAL expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 17 (expression -> expression NOTEQUAL expression .) ]
+  ! GREATERTHAN     [ reduce using rule 17 (expression -> expression NOTEQUAL expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ANDALSO         [ shift and go to state 19 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LESSERTHAN      [ shift and go to state 21 ]
+  ! LESSEREQUAL     [ shift and go to state 22 ]
+  ! EQUAL           [ shift and go to state 23 ]
+  ! NOTEQUAL        [ shift and go to state 24 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 49
+
+    (18) expression -> expression GREATEREQUAL expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    INTDIV          reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    MOD             reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    PLUS            reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    MINUS           reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    IN              reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    ANDALSO         reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    ORELSE          reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    LESSERTHAN      reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    LESSEREQUAL     reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    EQUAL           reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    NOTEQUAL        reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    GREATEREQUAL    reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    LEFTBRACKET     reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    TIMES           reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    DIVIDE          reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    $end            reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    COMMA           reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    RIGHTBRACKET    reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    RIGHTPARENTHESIS reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    LEFTPARENTHESIS reduce using rule 18 (expression -> expression GREATEREQUAL expression .)
+    CONCAT          shift and go to state 18
+    GREATERTHAN     shift and go to state 26
+
+  ! CONCAT          [ reduce using rule 18 (expression -> expression GREATEREQUAL expression .) ]
+  ! GREATERTHAN     [ reduce using rule 18 (expression -> expression GREATEREQUAL expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ANDALSO         [ shift and go to state 19 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LESSERTHAN      [ shift and go to state 21 ]
+  ! LESSEREQUAL     [ shift and go to state 22 ]
+  ! EQUAL           [ shift and go to state 23 ]
+  ! NOTEQUAL        [ shift and go to state 24 ]
+  ! GREATEREQUAL    [ shift and go to state 25 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 50
+
+    (19) expression -> expression GREATERTHAN expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    INTDIV          reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    MOD             reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    PLUS            reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    MINUS           reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    IN              reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    ANDALSO         reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    ORELSE          reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    LESSERTHAN      reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    LESSEREQUAL     reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    EQUAL           reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    NOTEQUAL        reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    GREATEREQUAL    reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    GREATERTHAN     reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    LEFTBRACKET     reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    TIMES           reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    DIVIDE          reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    $end            reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    COMMA           reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    RIGHTBRACKET    reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    RIGHTPARENTHESIS reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    LEFTPARENTHESIS reduce using rule 19 (expression -> expression GREATERTHAN expression .)
+    CONCAT          shift and go to state 18
+
+  ! CONCAT          [ reduce using rule 19 (expression -> expression GREATERTHAN expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! INTDIV          [ shift and go to state 13 ]
+  ! MOD             [ shift and go to state 14 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! ANDALSO         [ shift and go to state 19 ]
+  ! ORELSE          [ shift and go to state 20 ]
+  ! LESSERTHAN      [ shift and go to state 21 ]
+  ! LESSEREQUAL     [ shift and go to state 22 ]
+  ! EQUAL           [ shift and go to state 23 ]
+  ! NOTEQUAL        [ shift and go to state 24 ]
+  ! GREATEREQUAL    [ shift and go to state 25 ]
+  ! GREATERTHAN     [ shift and go to state 26 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 51
+
+    (25) expression -> expression LEFTBRACKET expression . RIGHTBRACKET
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    RIGHTBRACKET    shift and go to state 60
+    EXPONENT        shift and go to state 12
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    IN              shift and go to state 17
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    LEFTBRACKET     shift and go to state 27
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+
+state 52
+
+    (3) term -> expression TIMES expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 3 (term -> expression TIMES expression .)
+    PLUS            reduce using rule 3 (term -> expression TIMES expression .)
+    MINUS           reduce using rule 3 (term -> expression TIMES expression .)
+    IN              reduce using rule 3 (term -> expression TIMES expression .)
+    LEFTBRACKET     reduce using rule 3 (term -> expression TIMES expression .)
+    TIMES           reduce using rule 3 (term -> expression TIMES expression .)
+    $end            reduce using rule 3 (term -> expression TIMES expression .)
+    COMMA           reduce using rule 3 (term -> expression TIMES expression .)
+    RIGHTBRACKET    reduce using rule 3 (term -> expression TIMES expression .)
+    RIGHTPARENTHESIS reduce using rule 3 (term -> expression TIMES expression .)
+    LEFTPARENTHESIS reduce using rule 3 (term -> expression TIMES expression .)
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    DIVIDE          shift and go to state 29
+
+  ! INTDIV          [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! MOD             [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! CONCAT          [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! ANDALSO         [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! ORELSE          [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! LESSERTHAN      [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! EQUAL           [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! NOTEQUAL        [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! GREATERTHAN     [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! DIVIDE          [ reduce using rule 3 (term -> expression TIMES expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+
+
+state 53
+
+    (4) term -> expression DIVIDE expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    EXPONENT        reduce using rule 4 (term -> expression DIVIDE expression .)
+    PLUS            reduce using rule 4 (term -> expression DIVIDE expression .)
+    MINUS           reduce using rule 4 (term -> expression DIVIDE expression .)
+    IN              reduce using rule 4 (term -> expression DIVIDE expression .)
+    LEFTBRACKET     reduce using rule 4 (term -> expression DIVIDE expression .)
+    TIMES           reduce using rule 4 (term -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 4 (term -> expression DIVIDE expression .)
+    $end            reduce using rule 4 (term -> expression DIVIDE expression .)
+    COMMA           reduce using rule 4 (term -> expression DIVIDE expression .)
+    RIGHTBRACKET    reduce using rule 4 (term -> expression DIVIDE expression .)
+    RIGHTPARENTHESIS reduce using rule 4 (term -> expression DIVIDE expression .)
+    LEFTPARENTHESIS reduce using rule 4 (term -> expression DIVIDE expression .)
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+
+  ! INTDIV          [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! MOD             [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! CONCAT          [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! ANDALSO         [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! ORELSE          [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! LESSERTHAN      [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! LESSEREQUAL     [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! EQUAL           [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! NOTEQUAL        [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! GREATEREQUAL    [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! GREATERTHAN     [ reduce using rule 4 (term -> expression DIVIDE expression .) ]
+  ! EXPONENT        [ shift and go to state 12 ]
+  ! PLUS            [ shift and go to state 15 ]
+  ! MINUS           [ shift and go to state 16 ]
+  ! IN              [ shift and go to state 17 ]
+  ! LEFTBRACKET     [ shift and go to state 27 ]
+  ! TIMES           [ shift and go to state 28 ]
+  ! DIVIDE          [ shift and go to state 29 ]
+
+
+state 54
+
+    (21) expression -> LEFTBRACKET list_inside RIGHTBRACKET .
+
+    EXPONENT        reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    INTDIV          reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    MOD             reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    PLUS            reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    MINUS           reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    IN              reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    CONCAT          reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    ANDALSO         reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    ORELSE          reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    LESSERTHAN      reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    LESSEREQUAL     reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    EQUAL           reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    NOTEQUAL        reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    GREATEREQUAL    reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    GREATERTHAN     reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    LEFTBRACKET     reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    TIMES           reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    DIVIDE          reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    $end            reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    COMMA           reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    RIGHTBRACKET    reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    RIGHTPARENTHESIS reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+    LEFTPARENTHESIS reduce using rule 21 (expression -> LEFTBRACKET list_inside RIGHTBRACKET .)
+
+
+state 55
+
+    (22) list_inside -> expression COMMA . list_inside
+    (22) list_inside -> . expression COMMA list_inside
+    (23) list_inside -> . expression
+    (24) list_inside -> .
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    RIGHTBRACKET    reduce using rule 24 (list_inside -> .)
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 32
+    list_inside                    shift and go to state 61
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 56
+
+    (26) expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .
+
+    EXPONENT        reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    INTDIV          reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    MOD             reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    PLUS            reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    MINUS           reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    IN              reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    CONCAT          reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    ANDALSO         reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    ORELSE          reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    LESSERTHAN      reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    LESSEREQUAL     reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    EQUAL           reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    NOTEQUAL        reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    GREATEREQUAL    reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    GREATERTHAN     reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    LEFTBRACKET     reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    TIMES           reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    DIVIDE          reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    $end            reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    COMMA           reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    RIGHTBRACKET    reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    RIGHTPARENTHESIS reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+    LEFTPARENTHESIS reduce using rule 26 (expression -> LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS .)
+
+
+state 57
+
+    (20) factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .
+
+    EXPONENT        reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    INTDIV          reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    MOD             reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    PLUS            reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    MINUS           reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    IN              reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    CONCAT          reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    ANDALSO         reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    ORELSE          reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    LESSERTHAN      reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    LESSEREQUAL     reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    EQUAL           reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    NOTEQUAL        reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    GREATEREQUAL    reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    GREATERTHAN     reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    LEFTBRACKET     reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    TIMES           reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    DIVIDE          reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    $end            reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    COMMA           reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    RIGHTBRACKET    reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    RIGHTPARENTHESIS reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    LEFTPARENTHESIS reduce using rule 20 (factor -> LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+
+
+state 58
+
+    (27) tupleinside -> expression COMMA . tupleinside
+    (27) tupleinside -> . expression COMMA tupleinside
+    (28) tupleinside -> . expression
+    (29) tupleinside -> .
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    RIGHTPARENTHESIS reduce using rule 29 (tupleinside -> .)
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 62
+    tupleinside                    shift and go to state 63
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 59
+
+    (30) expression -> TUPLE_INDEX expression LEFTPARENTHESIS . expression RIGHTPARENTHESIS
+    (2) expression -> . expression EXPONENT expression
+    (5) expression -> . expression INTDIV expression
+    (6) expression -> . expression MOD expression
+    (7) expression -> . expression PLUS expression
+    (8) expression -> . expression MINUS expression
+    (9) expression -> . expression IN expression
+    (10) expression -> . expression CONCAT expression
+    (11) expression -> . NOT expression
+    (12) expression -> . expression ANDALSO expression
+    (13) expression -> . expression ORELSE expression
+    (14) expression -> . expression LESSERTHAN expression
+    (15) expression -> . expression LESSEREQUAL expression
+    (16) expression -> . expression EQUAL expression
+    (17) expression -> . expression NOTEQUAL expression
+    (18) expression -> . expression GREATEREQUAL expression
+    (19) expression -> . expression GREATERTHAN expression
+    (21) expression -> . LEFTBRACKET list_inside RIGHTBRACKET
+    (25) expression -> . expression LEFTBRACKET expression RIGHTBRACKET
+    (26) expression -> . LEFTPARENTHESIS tupleinside RIGHTPARENTHESIS
+    (30) expression -> . TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (31) expression -> . term
+    (3) term -> . expression TIMES expression
+    (4) term -> . expression DIVIDE expression
+    (32) term -> . factor
+    (35) term -> . STRING
+    (20) factor -> . LEFTPARENTHESIS expression RIGHTPARENTHESIS
+    (33) factor -> . NUMBER
+    (34) factor -> . BOOLEAN
+
+    NOT             shift and go to state 3
+    LEFTBRACKET     shift and go to state 4
+    LEFTPARENTHESIS shift and go to state 5
+    TUPLE_INDEX     shift and go to state 6
+    STRING          shift and go to state 9
+    NUMBER          shift and go to state 10
+    BOOLEAN         shift and go to state 11
+
+    expression                     shift and go to state 64
+    term                           shift and go to state 7
+    factor                         shift and go to state 8
+
+state 60
+
+    (25) expression -> expression LEFTBRACKET expression RIGHTBRACKET .
+
+    EXPONENT        reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    INTDIV          reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    MOD             reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    PLUS            reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    MINUS           reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    IN              reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    CONCAT          reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    ANDALSO         reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    ORELSE          reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    LESSERTHAN      reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    LESSEREQUAL     reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    EQUAL           reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    NOTEQUAL        reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    GREATEREQUAL    reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    GREATERTHAN     reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    LEFTBRACKET     reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    TIMES           reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    DIVIDE          reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    $end            reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    COMMA           reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    RIGHTBRACKET    reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    RIGHTPARENTHESIS reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+    LEFTPARENTHESIS reduce using rule 25 (expression -> expression LEFTBRACKET expression RIGHTBRACKET .)
+
+
+state 61
+
+    (22) list_inside -> expression COMMA list_inside .
+
+    RIGHTBRACKET    reduce using rule 22 (list_inside -> expression COMMA list_inside .)
+
+
+state 62
+
+    (27) tupleinside -> expression . COMMA tupleinside
+    (28) tupleinside -> expression .
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    COMMA           shift and go to state 58
+    RIGHTPARENTHESIS reduce using rule 28 (tupleinside -> expression .)
+    EXPONENT        shift and go to state 12
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    IN              shift and go to state 17
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    LEFTBRACKET     shift and go to state 27
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+
+state 63
+
+    (27) tupleinside -> expression COMMA tupleinside .
+
+    RIGHTPARENTHESIS reduce using rule 27 (tupleinside -> expression COMMA tupleinside .)
+
+
+state 64
+
+    (30) expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression . RIGHTPARENTHESIS
+    (2) expression -> expression . EXPONENT expression
+    (5) expression -> expression . INTDIV expression
+    (6) expression -> expression . MOD expression
+    (7) expression -> expression . PLUS expression
+    (8) expression -> expression . MINUS expression
+    (9) expression -> expression . IN expression
+    (10) expression -> expression . CONCAT expression
+    (12) expression -> expression . ANDALSO expression
+    (13) expression -> expression . ORELSE expression
+    (14) expression -> expression . LESSERTHAN expression
+    (15) expression -> expression . LESSEREQUAL expression
+    (16) expression -> expression . EQUAL expression
+    (17) expression -> expression . NOTEQUAL expression
+    (18) expression -> expression . GREATEREQUAL expression
+    (19) expression -> expression . GREATERTHAN expression
+    (25) expression -> expression . LEFTBRACKET expression RIGHTBRACKET
+    (3) term -> expression . TIMES expression
+    (4) term -> expression . DIVIDE expression
+
+    RIGHTPARENTHESIS shift and go to state 65
+    EXPONENT        shift and go to state 12
+    INTDIV          shift and go to state 13
+    MOD             shift and go to state 14
+    PLUS            shift and go to state 15
+    MINUS           shift and go to state 16
+    IN              shift and go to state 17
+    CONCAT          shift and go to state 18
+    ANDALSO         shift and go to state 19
+    ORELSE          shift and go to state 20
+    LESSERTHAN      shift and go to state 21
+    LESSEREQUAL     shift and go to state 22
+    EQUAL           shift and go to state 23
+    NOTEQUAL        shift and go to state 24
+    GREATEREQUAL    shift and go to state 25
+    GREATERTHAN     shift and go to state 26
+    LEFTBRACKET     shift and go to state 27
+    TIMES           shift and go to state 28
+    DIVIDE          shift and go to state 29
+
+
+state 65
+
+    (30) expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .
+
+    EXPONENT        reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    INTDIV          reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    MOD             reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    PLUS            reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    MINUS           reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    IN              reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    CONCAT          reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    ANDALSO         reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    ORELSE          reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    LESSERTHAN      reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    LESSEREQUAL     reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    EQUAL           reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    NOTEQUAL        reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    GREATEREQUAL    reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    GREATERTHAN     reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    LEFTBRACKET     reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    TIMES           reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    DIVIDE          reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    $end            reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    COMMA           reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    RIGHTBRACKET    reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    RIGHTPARENTHESIS reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+    LEFTPARENTHESIS reduce using rule 30 (expression -> TUPLE_INDEX expression LEFTPARENTHESIS expression RIGHTPARENTHESIS .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for RIGHTPARENTHESIS in state 34 resolved as shift
